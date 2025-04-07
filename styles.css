@@ -1,0 +1,416 @@
+/* Base styles */
+:root {
+    --background: hsl(350, 15%, 8%);
+    --foreground: hsl(0, 0%, 98%);
+    --card: hsl(350, 15%, 10%);
+    --card-foreground: hsl(210, 40%, 98%);
+    --popover: hsl(350, 15%, 10%);
+    --popover-foreground: hsl(210, 40%, 98%);
+    --primary: hsl(0, 80%, 45%);
+    --primary-hover: hsl(0, 80%, 40%);
+    --primary-foreground: hsl(0, 0%, 98%);
+    --secondary: hsl(350, 20%, 20%);
+    --secondary-foreground: hsl(210, 40%, 98%);
+    --muted: hsl(350, 20%, 18%);
+    --muted-foreground: hsl(215, 20.2%, 65.1%);
+    --accent: hsl(350, 20%, 18%);
+    --accent-foreground: hsl(210, 40%, 98%);
+    --destructive: hsl(0, 62.8%, 30.6%);
+    --destructive-foreground: hsl(210, 40%, 98%);
+    --border: hsl(350, 20%, 20%);
+    --input: hsl(350, 20%, 20%);
+    --ring: hsl(212.7, 26.8%, 83.9%);
+    --discord: #5865F2;
+    --discord-hover: #4752c4;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, 
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: linear-gradient(to bottom right, var(--background), #1a0a0c);
+    color: var(--foreground);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  /* Utilities */
+  .text-white {
+    color: white;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(to right, var(--primary), #f87171);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Glass card styling */
+  .glass-card, .feature-card {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px -2px rgba(224, 36, 36, 0.2);
+    border-color: rgba(224, 36, 36, 0.5);
+  }
+  
+  /* Navbar */
+  .navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.25rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background-color: rgba(var(--background), 0.8);
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    transition: color 0.2s;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--primary);
+  }
+  
+  .discord-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--discord);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+  }
+  
+  .discord-btn:hover {
+    background-color: var(--discord-hover);
+  }
+  
+  .icon {
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 640px) {
+    .discord-text {
+      display: none;
+    }
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    padding: 6rem 1rem 4rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+  }
+  
+  /* CTA Buttons */
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .primary-btn {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(224, 36, 36, 0.2);
+  }
+  
+  .primary-btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+  }
+  
+  .secondary-btn {
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--muted-foreground);
+  }
+  
+  .secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: scale(1.05);
+  }
+  
+  /* Features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  
+  .icon-container {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+  
+  .feature-desc {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+  
+  /* Background color utilities for icons */
+  .bg-red-950 {
+    background-color: hsl(0, 65%, 15%);
+  }
+  
+  .bg-amber-950 {
+    background-color: hsl(30, 65%, 15%);
+  }
+  
+  .bg-blue-950 {
+    background-color: hsl(210, 65%, 15%);
+  }
+  
+  .bg-gray-950 {
+    background-color: hsl(0, 0%, 15%);
+  }
+  
+  .text-red-500 {
+    color: hsl(0, 90%, 60%);
+  }
+  
+  .text-amber-500 {
+    color: hsl(30, 90%, 60%);
+  }
+  
+  .text-blue-500 {
+    color: hsl(210, 90%, 60%);
+  }
+  
+  .text-gray-300 {
+    color: hsl(0, 0%, 70%);
+  }
+  
+  /* Responsive */
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.75rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .container {
+      padding: 0 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 4rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .hero-section {
+      padding-top: 8rem;
+    }
+  }
+  
+  /* API Page Styles */
+  .api-section {
+    padding: 4rem 1rem;
+  }
+  
+  .api-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .api-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .api-description {
+    color: var(--muted-foreground);
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .api-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+  
+  .api-sidebar {
+    background-color: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .sidebar-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .sidebar-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-link {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--muted-foreground);
+    transition: color 0.2s;
+  }
+  
+  .sidebar-link:hover, .sidebar-link.active {
+    color: var(--primary);
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .section-description {
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+  }
+  
+  .code-block {
+    background-color: hsl(350, 12%, 12%);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: monospace;
+    color: var(--foreground);
+    border: 1px solid var(--border);
+  }
+  
+  .code-block pre {
+    margin: 0;
+  }
+  
+  .code-block code {
+    display: block;
+    white-space: pre;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Responsive API layout */
+  @media (min-width: 768px) {
+    .api-layout {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    
+    .api-sidebar {
+      width: 16rem;
+      position: sticky;
+      top: 6rem;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+    }
+    
+    .api-content {
+      flex: 1;
+      padding-left: 2rem;
+    }
+  }
+  
