@@ -33,27 +33,3 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(card);
     });
-
-  window.onload = function() {
-  // Hide the loading screen and show the main content
-  document.getElementById('loading-screen').style.display = 'none';
-  document.getElementById('main-content').style.display = 'block';
-    
-    // Add click effect to buttons
-    const buttons = document.querySelectorAll('.primary-btn, .secondary-btn');
-    
-    buttons.forEach(button => {
-      button.addEventListener('mousedown', () => {
-        button.style.transform = 'scale(0.98)';
-      });
-      
-      button.addEventListener('mouseup', () => {
-        button.style.transform = 'scale(1.05)';
-      });
-      
-      button.addEventListener('mouseleave', () => {
-        button.style.transform = 'scale(1)';
-          
-      });
-    });
-  });
